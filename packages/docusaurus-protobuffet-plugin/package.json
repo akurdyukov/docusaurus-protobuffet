@@ -36,5 +36,8 @@
     "@types/react": "^19.0.0",
     "react": "^19.0.0"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "gitHead": "f47a8d788faf25e81ee910ab0fac8582a718a2ae"
 }

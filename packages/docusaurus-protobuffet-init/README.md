@@ -21,12 +21,26 @@ This package scaffolds a new Docusaurus project with the `@akurdyukov/docusaurus
 
 **Requirements:** Node.js 18+, npm 9+
 
+### Registry Setup
+
+This package is published to the GitHub npm registry. Configure npm to use it for the `@akurdyukov` scope by adding the following to an `.npmrc` file in your project directory or home directory (`~/.npmrc`):
+
+```
+@akurdyukov:registry=https://npm.pkg.github.com
+```
+
+If the repository is private, you also need to authenticate. Create a GitHub [personal access token](https://github.com/settings/tokens) with `read:packages` scope and add it:
+
+```
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
 ### Quick Start
 
 Run the generator from the parent directory where you want the project created:
 
 ```sh
-npx @akurdyukov/docusaurus-protobuffet-init init <project_name>
+npx @akurdyukov/docusaurus-protobuffet-init@1 init <project_name>
 ```
 
 This will:

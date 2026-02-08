@@ -37,6 +37,9 @@
     "commander": "^7.2.0",
     "shelljs": "^0.8.4"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@types/shelljs": "^0.8.8",
     "copyfiles": "^2.4.1"
