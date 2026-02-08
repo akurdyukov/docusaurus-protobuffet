@@ -23,9 +23,6 @@ jobs:
       - name: Install root dependencies
         run: npm ci
 
-      - name: Bootstrap packages
-        run: npx lerna bootstrap
-
       - name: Build all packages
         run: npx lerna run build
 
@@ -52,9 +49,6 @@ jobs:
 
       - name: Install root dependencies
         run: npm ci
-
-      - name: Bootstrap packages
-        run: npx lerna bootstrap
 
       - name: Build all packages
         run: npx lerna run build
