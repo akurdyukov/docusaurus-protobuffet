@@ -4,6 +4,7 @@ import { Enum, FileDescriptor, Message, MessageField, Service, ServiceMethod } f
 
 interface ComponentProps {
   id?: string;
+  children?: React.ReactNode;
 }
 
 interface ComponentsProps {

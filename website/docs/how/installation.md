@@ -3,7 +3,7 @@ title: Installation
 slug: /how/installation
 ---
 
-This section assumes installing [`docusaurus-protobuffet`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet) in an existing Docusaurus project. For those without an existing project, you can **use [`docusaurus-protobuffet-init`](/docs/how/usage#docusaurus-protobuffet-init) to scaffold a Docusaurus project with this preset** installed.
+This section assumes installing [`@akurdyukov/docusaurus-protobuffet`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet) in an existing Docusaurus project. For those without an existing project, you can **use [`@akurdyukov/docusaurus-protobuffet-init`](/docs/how/usage#akurdyukovdocusaurus-protobuffet-init) to scaffold a Docusaurus project with this preset** installed.
 
 :::tip
 These commands should be run at the root of your Docusaurus project directory.
@@ -12,7 +12,7 @@ These commands should be run at the root of your Docusaurus project directory.
 Install this preset.
 
 ```sh
-npm install --save docusaurus-protobuffet
+npm install --save @akurdyukov/docusaurus-protobuffet
 ```
 
 Generate a JSON representation of your Protobuf files. This depends on the [`protoc-gen-doc`](https://github.com/pseudomuto/protoc-gen-doc) compiler plugin. Find details and installation steps in the [usage section](/docs/how/usage#generating-the-filedescriptorspath-file).
@@ -29,7 +29,7 @@ module.exports = {
   // ...
   presets: [
     [
-      'docusaurus-protobuffet',
+      '@akurdyukov/docusaurus-protobuffet',
       {
         protobuffet: {
           fileDescriptorsPath: './fixtures/proto_workspace.json'

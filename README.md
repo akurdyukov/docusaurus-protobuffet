@@ -8,9 +8,9 @@ This is a [Lerna](https://lerna.js.org/) project containing all packages.
 
 ## Usage
 
-See [`docusaurus-protobuffet`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet#usage) for details on usage.
+See [`@akurdyukov/docusaurus-protobuffet`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet#usage) for details on usage.
 
-See [`docusaurus-protobuffet-init`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init#usage) to create a new Docusaurus project with this toolset installed.
+See [`@akurdyukov/docusaurus-protobuffet-init`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init#usage) to create a new Docusaurus project with this toolset installed.
 
 ## Features
 ### Existing
@@ -31,15 +31,15 @@ Visit the [documentation site](https://protobuffet.com/docs/what/demo) for an in
 
 ## Packages
 
-### [`docusaurus-protobuffet`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet)
+### [`@akurdyukov/docusaurus-protobuffet`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet)
 
 Docusaurus preset to help mount the plugin and render all generated files.
 
-### [`docusaurus-protobuffet-init`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init)
+### [`@akurdyukov/docusaurus-protobuffet-init`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init)
 
 Docusaurus project generator to scaffold a new site with these packages installed in a recommended setup.
 
-### [`docusaurus-protobuffet-plugin`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin)
+### [`@akurdyukov/docusaurus-protobuffet-plugin`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin)
 
 Docusaurus plugin containing the CLI commands, file generators, and components.
 

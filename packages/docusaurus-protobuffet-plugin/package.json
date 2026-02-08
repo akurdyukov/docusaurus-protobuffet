@@ -1,14 +1,14 @@
 {
-  "name": "docusaurus-protobuffet-plugin",
-  "version": "0.3.3",
+  "name": "@akurdyukov/docusaurus-protobuffet-plugin",
+  "version": "1.0.0",
   "description": "Protobuf documentation plugin for Docusaurus",
   "author": "Anthony Bobsin",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/protobuffet/docusaurus-protobuffet.git"
+    "url": "git+https://github.com/akurdyukov/docusaurus-protobuffet.git"
   },
-  "homepage": "https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin",
+  "homepage": "https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin",
   "keywords": [
     "docusaurus",
     "plugin",
@@ -21,17 +21,23 @@
     "markdown",
     "mdx"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@docusaurus/utils": "^2.0.0-alpha.72"
+    "@docusaurus/utils": "^3.9.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.3",
-    "react": "^17.0.2"
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "gitHead": "f47a8d788faf25e81ee910ab0fac8582a718a2ae"
 }
