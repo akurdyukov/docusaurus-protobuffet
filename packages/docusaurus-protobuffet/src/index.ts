@@ -55,7 +55,7 @@ export default function preset(
   const config = {
     plugins: [
       [
-        require.resolve('docusaurus-protobuffet-plugin'),
+        require.resolve('@akurdyukov/docusaurus-protobuffet-plugin'),
         pluginOptions,
       ],
       [

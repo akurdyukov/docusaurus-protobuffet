@@ -1,14 +1,14 @@
 {
-  "name": "docusaurus-protobuffet-init",
-  "version": "0.3.0",
+  "name": "@akurdyukov/docusaurus-protobuffet-init",
+  "version": "1.0.0",
   "description": "Create Docusaurus projects with Protobuffet preset enabled",
   "author": "Anthony Bobsin <bobsinj@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/protobuffet/docusaurus-protobuffet.git"
+    "url": "git+https://github.com/akurdyukov/docusaurus-protobuffet.git"
   },
-  "homepage": "https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin",
+  "homepage": "https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init",
   "keywords": [
     "docusaurus",
     "plugin",
@@ -21,6 +21,9 @@
     "markdown",
     "mdx"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "main": "dist/index.js",
   "bin": "bin/index.js",
   "scripts": {
@@ -30,7 +33,6 @@
     "copy-template-fixtures": "copyfiles -f src/templates/* dist/templates/"
   },
   "dependencies": {
-    "@docusaurus/init": "^2.0.0-alpha.72",
     "chalk": "^4.1.0",
     "commander": "^7.2.0",
     "shelljs": "^0.8.4"

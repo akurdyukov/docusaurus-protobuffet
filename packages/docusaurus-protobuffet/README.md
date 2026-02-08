@@ -4,20 +4,29 @@
 
 [Docusaurus](https://docusaurus.io/) toolset for Protobuf contract documentation. Provides a set of components and MDX doc file generators for Docusaurus sites.
 
+## Compatibility
+
+| Version | Docusaurus | React | Node.js |
+|---------|-----------|-------|---------|
+| 1.x     | 3.9+      | 18+   | 18+     |
+| 0.x     | 2.x       | 17    | 14+     |
+
+For upgrading from 0.x to 1.x, see the [migration guide](../../MIGRATION.md).
+
 ![Protodocs Overview](../../screenshots/overview.png)
 
 ---
 
 ## Installation
 
-This section assumes an existing Docusaurus project. For those without an existing setup, you can use [`docusaurus-protobuffet-init`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init#usage) to scaffold a Docusaurus project with this preset installed.
+This section assumes an existing Docusaurus project. For those without an existing setup, you can use [`@akurdyukov/docusaurus-protobuffet-init`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init#usage) to scaffold a Docusaurus project with this preset installed.
 
 NOTE: These commands should be run from your Docusaurus project directory.
 
 Install this preset.
 
 ```sh
-npm install --save docusaurus-protobuffet
+npm install --save @akurdyukov/docusaurus-protobuffet
 ```
 
 Generate a JSON representation of your Protobuf files. This depends on the [`protoc-gen-doc`](https://github.com/pseudomuto/protoc-gen-doc) compiler plugin. Find details and installation steps in the [usage section](#generating-the-filedescriptorspath-file).
@@ -34,7 +43,7 @@ module.exports = {
   // ...
   presets: [
     [
-      'docusaurus-protobuffet',
+      '@akurdyukov/docusaurus-protobuffet',
       {
         protobuffet: {
           fileDescriptorsPath: './fixtures/proto_workspace.json'
@@ -90,7 +99,7 @@ module.exports = {
   // ...
   presets: [
     [
-      'docusaurus-protobuffet',
+      '@akurdyukov/docusaurus-protobuffet',
       {
         protobuffet: {
           fileDescriptorsPath: './fixtures/proto_workspace.json',
@@ -109,7 +118,7 @@ module.exports = {
 ```
 
 #### `protobuffet`
-Pass in all plugin options. See [`docusaurus-protobuffet-plugin`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin) for the plugin library. This preset assigns some recommended defaults for missing options.
+Pass in all plugin options. See [`@akurdyukov/docusaurus-protobuffet-plugin`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin) for the plugin library. This preset assigns some recommended defaults for missing options.
 
 | Option | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -143,7 +152,7 @@ Generate documentation for all Protobuf files within the configured `fileDescrip
 
 This command must be run for every content change of `fileDescriptorsPath`. This will overwrite all previously generated files, so they should not be modified manually. Extension support for these generated files will be coming in the future, so please reach out with your use cases.
 
-You can view some [generated doc files in the landing page](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/website/protodocs).
+You can view some [generated doc files in the landing page](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/website/protodocs).
 
 ### Generating the `fileDescriptorsPath` File
 This project depends on a snapshot of all the files within your Protobuf workspace. The formatting and generation of this snapshot currently depends on the [`protoc-gen-doc`](https://github.com/pseudomuto/protoc-gen-doc) Protobuf compiler plugin. `protoc-gen-doc` can generate a JSON representation of your Protobuf files, which we parse to build an enhanced view of your documentation.
@@ -168,6 +177,8 @@ protoc --doc_out=./fixtures --doc_opt=json,proto_workspace.json --proto_path=pro
 This plugin enables search bar functionality based on a generated local index of your Protobuf documentation. It depends on `@docusaurus/preset-classic` or any preset that leverages the `@theme/SearchBar` component. You can read more about how Docusaurus handles search [here](https://docusaurus.io/docs/search).
 
 This must be installed within your project, so add the plugin to your `docusaurus.config.js` file. Make sure `docsRouteBasePath` and `docsDir` are configured to match your `protoDocsPath` option.
+
+For Docusaurus 3.x, use `@easyops-cn/docusaurus-search-local` version `^0.54.0` or later.
 
 ```js
 // file: docusaurus.config.js

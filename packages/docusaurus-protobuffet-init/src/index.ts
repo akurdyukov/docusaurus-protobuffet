@@ -10,25 +10,25 @@ const DEFAULT_TEMPLATE = 'classic';
 export default async function init(
   siteName: string,
 ) {
-  console.log(chalk.cyan('Triggering @docusaurus/core project creation.'));
+  console.log(chalk.cyan('Triggering Docusaurus project creation.'));
 
   try {
-    execSync(`npx @docusaurus/init@latest init --use-npm ${siteName} ${DEFAULT_TEMPLATE} `, { stdio: 'inherit' });
+    execSync(`npx create-docusaurus@latest ${siteName} ${DEFAULT_TEMPLATE} --package-manager npm`, { stdio: 'inherit' });
   } catch (err) {
-    console.log(chalk.red('Generation of base template from @docusaurus/init failed.'));
+    console.log(chalk.red('Generation of base template from create-docusaurus failed.'));
     throw err;
   }
 
-  console.log(chalk.cyan('Installing docusaurus-protobuffet with recommended plugins.'));
+  console.log(chalk.cyan('Installing @akurdyukov/docusaurus-protobuffet with recommended plugins.'));
 
   try {
-    execSync(`cd ${siteName} && npm install --save docusaurus-protobuffet @easyops-cn/docusaurus-search-local`, { stdio: 'inherit' });
+    execSync(`cd ${siteName} && npm install --save @akurdyukov/docusaurus-protobuffet @easyops-cn/docusaurus-search-local@^0.54.0`, { stdio: 'inherit' });
   } catch (err) {
     console.log(chalk.red('Installation of Protobuffet preset failed.'));
     throw err;
   }
 
-  console.log(chalk.cyan('Initializing docusaurus-protobuffet with default options and sample fixtures.'))
+  console.log(chalk.cyan('Initializing @akurdyukov/docusaurus-protobuffet with default options and sample fixtures.'))
 
   fs.mkdirSync(`${siteName}/protodocs`);
   fs.mkdirSync(`${siteName}/fixtures`);

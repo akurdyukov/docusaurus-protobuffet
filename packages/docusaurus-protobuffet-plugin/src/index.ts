@@ -16,7 +16,7 @@ export interface PluginOptions {
   routeBasePath: string;
 }
 
-export function validateOptions({ options, validate }: { options: PluginOptions, validate: () => void }): PluginOptions {
+export function validateOptions({ options }: { options: PluginOptions, validate: unknown }): PluginOptions {
   const { fileDescriptorsPath, protoDocsPath, sidebarPath } = options;
 
   // fileDescriptorsPath is an existing json file
@@ -42,7 +42,7 @@ export default function plugin(
   options: PluginOptions,
 ): Plugin<never> {
   return {
-    name: "docusaurus-protobuffet-plugin",
+    name: "@akurdyukov/docusaurus-protobuffet-plugin",
 
     extendCli(cli) {
       cli

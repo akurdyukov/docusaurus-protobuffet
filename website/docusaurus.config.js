@@ -7,8 +7,12 @@ module.exports = {
   organizationName: 'protobuffet',
   projectName: 'protobuffet.github.io',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   themeConfig: {
     navbar: {
       title: 'Protobuffet',
@@ -30,7 +34,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/protobuffet/docusaurus-protobuffet',
+          href: 'https://github.com/akurdyukov/docusaurus-protobuffet',
           label: 'GitHub',
           position: 'right',
         },
@@ -74,7 +78,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/protobuffet/docusaurus-protobuffet',
+              href: 'https://github.com/akurdyukov/docusaurus-protobuffet',
             },
           ],
         }
@@ -89,7 +93,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/protobuffet/docusaurus-protobuffet/edit/master/website/',
+            'https://github.com/akurdyukov/docusaurus-protobuffet/edit/master/website/',
         },
         blog: false,
         theme: {
@@ -101,7 +105,7 @@ module.exports = {
       },
     ],
     [
-      'docusaurus-protobuffet',
+      '@akurdyukov/docusaurus-protobuffet',
       {
         protobuffet: {
           fileDescriptorsPath: './fixtures/proto_workspace.json',

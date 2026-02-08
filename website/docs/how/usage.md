@@ -3,7 +3,7 @@ title: Usage
 slug: /how/usage
 ---
 
-## [`docusaurus-protobuffet`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet)
+## [`@akurdyukov/docusaurus-protobuffet`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet)
 
 This toolset provides a **suite of CLI commands** to generate and manage documentation files for your Protobuf workspace. These generated files follow the **Docusaurus convention of using MDX files and React components**.
 
@@ -19,7 +19,7 @@ npx docusaurus generate-proto-docs
 
 This command must be run for every content change of `fileDescriptorsPath`. This will overwrite all previously generated files, so they should not be modified manually. Extension support for these generated files will be coming in the future, so please reach out with your use cases.
 
-You can view some [generated doc files in the landing page](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/website/protodocs).
+You can view some [generated doc files in the landing page](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/website/protodocs).
 
 ### Generating the `fileDescriptorsPath` File
 This project depends on a snapshot of all the files within your Protobuf workspace. **The formatting and generation of this snapshot currently depends on the [`protoc-gen-doc`](https://github.com/pseudomuto/protoc-gen-doc) Protobuf compiler plugin**. `protoc-gen-doc` can generate a JSON representation of your Protobuf files, which we parse to build an enhanced view of your documentation.
@@ -45,7 +45,7 @@ module.exports = {
   // ...
   presets: [
     [
-      'docusaurus-protobuffet',
+      '@akurdyukov/docusaurus-protobuffet',
       {
         protobuffet: {
           fileDescriptorsPath: './fixtures/proto_workspace.json',
@@ -64,7 +64,7 @@ module.exports = {
 ```
 
 #### `protobuffet`
-Pass in all plugin options. See [`docusaurus-protobuffet-plugin`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin) for the plugin library. This preset assigns some recommended defaults for missing options.
+Pass in all plugin options. See [`@akurdyukov/docusaurus-protobuffet-plugin`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-plugin) for the plugin library. This preset assigns some recommended defaults for missing options.
 
 | Option | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -80,14 +80,14 @@ Pass in options for the [`@docusaurus/plugin-content-docs`](https://docusaurus.i
 | `routeBasePath` | URL base route for the Protobuffet docs section of your site. |  | `protodocs` |
 | `sidebarPath` | Path to file where docs plugin will read the Sidebar object. |  | `./sidebarsProtodocs.js` |
 
-## [`docusaurus-protobuffet-init`](https://github.com/protobuffet/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init)
+## [`@akurdyukov/docusaurus-protobuffet-init`](https://github.com/akurdyukov/docusaurus-protobuffet/tree/master/packages/docusaurus-protobuffet-init)
 
 For those without an existing Docusaurus project, this package can **scaffold a new site with Protobuffet packages installed** in a recommended setup.
 
 Run the generator in the folder you would like the project to be created. This will create a directory for your site with the generated files. You must specify the `project_name` variable.
 
 ```sh
-npx docusaurus-protobuffet-init init <project_name>
+npx @akurdyukov/docusaurus-protobuffet-init init <project_name>
 ```
 
 Start the development server to view the sample fixtures. See the [configuration section](#configuration) for steps on introducing your own Protobuf workspace file.
@@ -97,7 +97,7 @@ cd <project_name>
 npm run start
 ```
 
-Proto doc files were generated for the sample fixture during project initialization. These will need to be generated whenever the `fileDescriptorsPath` file (defaulted to `./fixtures/proto_workspace.json`) is updated. Read [`docusaurus-protobuffet CLI documentation`](#cli-commands) for details.
+Proto doc files were generated for the sample fixture during project initialization. These will need to be generated whenever the `fileDescriptorsPath` file (defaulted to `./fixtures/proto_workspace.json`) is updated. Read [`@akurdyukov/docusaurus-protobuffet CLI documentation`](#cli-commands) for details.
 
 ```sh
 npx docusaurus generate-proto-docs
