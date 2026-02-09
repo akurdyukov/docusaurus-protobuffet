@@ -35,7 +35,7 @@
     "@docusaurus/types": "^3.9.2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "gitHead": "f47a8d788faf25e81ee910ab0fac8582a718a2ae"
 }
