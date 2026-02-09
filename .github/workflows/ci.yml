@@ -66,5 +66,3 @@ jobs:
 
       - name: Publish to npmjs.com
         run: npx lerna publish from-package --yes --no-private
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
