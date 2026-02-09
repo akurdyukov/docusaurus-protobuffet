@@ -46,7 +46,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org/
 
       - name: Install root dependencies
         run: npm ci
@@ -54,15 +54,5 @@ jobs:
       - name: Build all packages
         run: npx lerna run build
 
-      - name: Publish to GitHub Packages
-        run: npx lerna publish from-package --yes --no-private
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          registry-url: https://registry.npmjs.org/
-
       - name: Publish to npmjs.com
-        run: npx lerna publish from-package --yes --no-private
+        run: npx lerna publish from-package --force-publish --yes --no-private --push=false --gitTagVersion=false
