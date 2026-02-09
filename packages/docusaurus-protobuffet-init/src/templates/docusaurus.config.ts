@@ -30,9 +30,9 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docusaurus',
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          label: 'Tutorials',
           position: 'left',
         },
         {to: 'blog', label: 'Blog', position: 'left'},
@@ -120,8 +120,8 @@ const config: Config = {
       '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
-        docsRouteBasePath: 'protodocs',
-        docsDir: 'protodocs',
+        docsRouteBasePath: ['docs', 'protodocs'],
+        docsDir: ['docs', 'protodocs'],
         indexBlog: false,
       },
     ],

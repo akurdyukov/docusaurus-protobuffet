@@ -40,7 +40,15 @@ export default async function init(
     fs.unlinkSync(configJs);
   }
   fs.copyFileSync(path.resolve(__dirname, 'templates/docusaurus.config.ts'), `${siteName}/docusaurus.config.ts`);
-  fs.copyFileSync(path.resolve(__dirname, 'templates/proto_workspace.json'), `${siteName}/fixtures/proto_workspace.json`);
+  fs.cpSync(path.resolve(__dirname, 'templates/proto'), `${siteName}/proto`, { recursive: true });
+
+  // Add generate-proto-json script to the generated project's package.json
+  const pkgJsonPath = `${siteName}/package.json`;
+  const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf-8'));
+  pkg.scripts = pkg.scripts || {};
+  pkg.scripts['generate-proto-json'] = "docker run --rm -v $(pwd)/proto:/protos -v $(pwd)/fixtures:/out pseudomuto/protoc-gen-doc --doc_opt=json,proto_workspace.json $(find proto -name '*.proto' | sed 's|^proto/||')";
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkg, null, 2) + '\n');
+
   // Remove default index page created by create-docusaurus to avoid duplicate route
   const indexTsx = `${siteName}/src/pages/index.tsx`;
   if (fs.existsSync(indexTsx)) {
@@ -50,6 +58,15 @@ export default async function init(
   fs.copyFileSync(path.resolve(__dirname, 'templates/landing_page.module.css'), `${siteName}/src/pages/styles.module.css`);
   fs.copyFileSync(path.resolve(__dirname, 'templates/logo.png'), `${siteName}/static/img/logo.png`);
   fs.copyFileSync(path.resolve(__dirname, 'templates/favicon.ico'), `${siteName}/static/img/favicon.ico`);
+
+  console.log(chalk.cyan('Generating proto JSON descriptor from proto sources.'));
+
+  try {
+    execSync(`cd ${siteName} && npm run generate-proto-json`, { stdio: 'inherit' });
+  } catch (err) {
+    console.log(chalk.red('Generation of proto JSON descriptor failed. Is Docker running?'));
+    throw err;
+  }
 
   console.log(chalk.cyan('Generating Proto doc files for sample fixtures.'));
 
