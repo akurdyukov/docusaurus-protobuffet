@@ -34,8 +34,18 @@ export default async function init(
   fs.mkdirSync(`${siteName}/fixtures`);
   fs.writeFileSync(`${siteName}/sidebarsProtodocs.js`, '');
 
-  fs.copyFileSync(path.resolve(__dirname, 'templates/docusaurus.config.js'), `${siteName}/docusaurus.config.js`);
+  // Remove existing config file so Docusaurus loads our template
+  const configJs = `${siteName}/docusaurus.config.js`;
+  if (fs.existsSync(configJs)) {
+    fs.unlinkSync(configJs);
+  }
+  fs.copyFileSync(path.resolve(__dirname, 'templates/docusaurus.config.ts'), `${siteName}/docusaurus.config.ts`);
   fs.copyFileSync(path.resolve(__dirname, 'templates/proto_workspace.json'), `${siteName}/fixtures/proto_workspace.json`);
+  // Remove default index page created by create-docusaurus to avoid duplicate route
+  const indexTsx = `${siteName}/src/pages/index.tsx`;
+  if (fs.existsSync(indexTsx)) {
+    fs.unlinkSync(indexTsx);
+  }
   fs.copyFileSync(path.resolve(__dirname, 'templates/landing_page.js'), `${siteName}/src/pages/index.js`);
   fs.copyFileSync(path.resolve(__dirname, 'templates/landing_page.module.css'), `${siteName}/src/pages/styles.module.css`);
   fs.copyFileSync(path.resolve(__dirname, 'templates/logo.png'), `${siteName}/static/img/logo.png`);

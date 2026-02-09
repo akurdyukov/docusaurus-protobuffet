@@ -1,5 +1,7 @@
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const config: Config = {
   title: 'Protobuffet',
   tagline: 'Documentation Toolset for Your Protobuf Workspace',
   url: 'https://protobuffet.com',
@@ -7,7 +9,11 @@ module.exports = {
   organizationName: 'protobuffet', // Usually your GitHub org/user name.
   projectName: 'protobuffet.github.io', // Usually your repo name.
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'img/favicon.ico',
   themeConfig: {
     navbar: {
@@ -66,7 +72,7 @@ module.exports = {
             },
             {
               label: 'Usage',
-              to: 'https://protobuffet.com/docs/how/usage'
+              to: 'https://protobuffet.com/docs/how/usage',
             },
           ],
         },
@@ -82,27 +88,21 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Protobuffet. Built with Docusaurus.`,
     },
-  },
+  } satisfies Preset.ThemeConfig,
   presets: [
     [
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+          sidebarPath: './sidebars.ts',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
-      },
+      } satisfies Preset.Options,
     ],
     [
       '@akurdyukov/docusaurus-protobuffet',
@@ -111,9 +111,9 @@ module.exports = {
           fileDescriptorsPath: './fixtures/proto_workspace.json',
           protoDocsPath: './protodocs',
           sidebarPath: './sidebarsProtodocs.js',
-        }
-      }
-    ]
+        },
+      },
+    ],
   ],
   plugins: [
     [
@@ -125,5 +125,7 @@ module.exports = {
         indexBlog: false,
       },
     ],
-  ]
+  ],
 };
+
+export default config;
