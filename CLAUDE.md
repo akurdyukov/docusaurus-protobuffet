@@ -76,6 +76,8 @@ Root `tsconfig.json` targets ES5 with CommonJS modules, strict mode, JSX react. 
 - TypeScript 5.2+ (upgrading from 4.2.3) + Docusaurus 3.9.2, React 18.2+, MDX 3 (001-docusaurus-upgrade)
 - N/A (file-based generation) (001-docusaurus-upgrade)
 - TypeScript 5.2+ (no change) + Lerna ^9.0.0 (upgrading from ^4.0.0), Nx >=21.5.3 (transitive via Lerna) (002-upgrade-lerna)
+- TypeScript 5.2+ (strict mode, ES5 target, CommonJS modules) + Docusaurus 3.9.2, chalk, commander, copyfiles (dev) (003-proto-source-templates)
+- File-based (proto files as templates, JSON descriptor as generated output) (003-proto-source-templates)
 
 ## Recent Changes
 - 001-docusaurus-upgrade: Added TypeScript 5.2+ (upgrading from 4.2.3) + Docusaurus 3.9.2, React 18.2+, MDX 3
