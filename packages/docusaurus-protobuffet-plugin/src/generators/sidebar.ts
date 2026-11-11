@@ -79,8 +79,14 @@ const buildFileDirectory = (files: GeneratedDocFile[]): FileDirectory => {
 const compactFileDirectory = (fileDir: FileDirectory) => {
   if (!(fileDir && fileDir.nested)) return;
 
-  // loop nested packages while they can be compacted (length 1)
-  while (fileDir.nested && Object.keys(fileDir.nested).length === 1) {
+  // loop nested packages while they can be compacted: exactly one subfolder and no files of its own.
+  // A folder that contains files must keep its own category; merging it into its subfolder would
+  // list its files under the subfolder's (longer) label, e.g. /a/x.proto shown under "/a/b".
+  while (
+    fileDir.nested &&
+    Object.keys(fileDir.nested).length === 1 &&
+    !(fileDir.files && fileDir.files.length > 0)
+  ) {
     // compact directory with nested. eg. { protobuf: { example: {} } -> { 'protobuf.example': {} }
     const nestedDir: FileDirectory = fileDir.nested[Object.keys(fileDir.nested)[0]];
     // concat name
